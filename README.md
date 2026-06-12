@@ -80,7 +80,7 @@ This project implements a comprehensive pipeline for credit card fraud detection
 
 ## Credits
 
-- Developed by Akshat Shukla
+- Developed by Devguru Tiwari
 - Quantum ML section inspired by PennyLane documentation
 
 ## License
