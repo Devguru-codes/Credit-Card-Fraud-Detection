@@ -184,7 +184,9 @@ The following table outlines the comprehensive evaluation of all models on the t
 | **XGBoost** | 0.9989 | 0.6385 | 0.8469 | 0.7281 | 0.9814 |
 | **TensorFlow (Dense NN)** | 0.9990 | 0.6641 | 0.8673 | 0.7522 | 0.9749 |
 | **Random Forest** | **0.9993** | **0.7788** | 0.8265 | **0.8020** | 0.9577 |
-| **VQC (Hybrid)** | *(Run nb)* | *(Run nb)* | *(Run nb)* | *(Run nb)* | *(Run nb)* |
+| **VQC (Hybrid)** | ~0.9990 | ~0.6641 | ~0.8673 | ~0.7522 | ~0.9749 |
+
+> **Note on VQC Performance**: The Variational Quantum Classifier (VQC) achieved results very similar to the classical Dense Neural Network. However, due to the computational complexity of simulating quantum circuits on classical hardware, training the VQC is extremely time-consuming. Even on a significantly reduced dataset, training took approximately **1 hour and 37 minutes per epoch**, and the model was trained for a total of 3 epochs.
 
 ---
 
