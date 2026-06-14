@@ -92,7 +92,17 @@ best_features_pso_binary = pos.astype(int)
 
 ---
 
-## 4. Hybrid Quantum-Classical Modeling (VQC)
+## 4. Classical Baseline Models
+
+To evaluate the effectiveness of the Quantum model, several classical machine learning algorithms are used as baselines:
+
+*   **Logistic Regression**: A linear model serving as the foundational baseline. It is fast, interpretable, and used inside our PSO fitness function to select the optimal feature subset.
+*   **Random Forest Classifier**: An ensemble learning method that constructs a multitude of decision trees. It is highly robust against overfitting and handles non-linear relationships well.
+*   **XGBoost (Extreme Gradient Boosting)**: An advanced ensemble technique that builds trees sequentially, minimizing errors from previous trees. It typically achieves state-of-the-art performance on tabular data like fraud detection.
+
+---
+
+## 5. Hybrid Quantum-Classical Modeling (VQC)
 
 The core innovation of this project is the integration of a **Variational Quantum Classifier (VQC)**. We utilize `PennyLane` to construct parameterized quantum circuits and integrate them as custom trainable layers within a `TensorFlow/Keras` classical neural network architecture.
 
@@ -159,6 +169,20 @@ model.compile(loss="binary_crossentropy", optimizer=keras.optimizers.Adam(learni
 
 ---
 
+## 6. Model Comparison
+
+The following table outlines the expected comparison between the classical baseline models and the Variational Quantum Classifier (VQC). 
+*(Note: Replace with your exact numbers after running all models on the full test set)*
+
+| Model | Accuracy | Precision | Recall | F1-Score | AUC-ROC | Notes |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Logistic Regression** | 0.9X | 0.8X | 0.8X | 0.8X | 0.9X | Fast, linear baseline |
+| **Random Forest** | 0.9X | 0.9X | 0.8X | 0.9X | 0.9X | Strong non-linear baseline |
+| **XGBoost** | **0.99** | **0.9X** | **0.9X** | **0.9X** | **0.99** | State-of-the-art classical performance |
+| **VQC (Hybrid)** | 0.9X | 0.8X | 0.8X | 0.8X | 0.9X | Demonstrates capability of Quantum circuits |
+
+---
+
 ## How to Run
 
 ### 1. Requirements & Setup
@@ -172,7 +196,7 @@ Place your `fraud test.csv` in the root of the project directory.
 
 ### 2. Execution
 Launch Jupyter and open the main notebook to execute the pipeline cell by cell:
-`ML_PROJECT_CREDIT_CARD_FRAUD_DETECTION_(Only_Quantum).ipynb`
+`ML_PROJECT_CREDIT_CARD_FRAUD_DETECTION.ipynb`
 
 ---
 
