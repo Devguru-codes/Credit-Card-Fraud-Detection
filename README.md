@@ -92,13 +92,15 @@ best_features_pso_binary = pos.astype(int)
 
 ---
 
-## 4. Classical Baseline Models
+## 4. Classical & Deep Learning Baseline Models
 
-To evaluate the effectiveness of the Quantum model, several classical machine learning algorithms are used as baselines:
+To evaluate the effectiveness of the Quantum model, several classical machine learning and deep learning algorithms are used as baselines:
 
 *   **Logistic Regression**: A linear model serving as the foundational baseline. It is fast, interpretable, and used inside our PSO fitness function to select the optimal feature subset.
 *   **Random Forest Classifier**: An ensemble learning method that constructs a multitude of decision trees. It is highly robust against overfitting and handles non-linear relationships well.
-*   **XGBoost (Extreme Gradient Boosting)**: An advanced ensemble technique that builds trees sequentially, minimizing errors from previous trees. It typically achieves state-of-the-art performance on tabular data like fraud detection.
+*   **XGBoost & LightGBM**: Advanced gradient boosting ensemble techniques that build trees sequentially. They typically achieve state-of-the-art performance on tabular data like fraud detection.
+*   **Isolation Forest**: An unsupervised learning algorithm for anomaly detection that works well for identifying rare fraud cases.
+*   **Neural Networks (MLP & Dense NN)**: Standard Deep Learning feedforward architectures to provide a direct baseline against the Variational Quantum circuit.
 
 ---
 
@@ -171,15 +173,18 @@ model.compile(loss="binary_crossentropy", optimizer=keras.optimizers.Adam(learni
 
 ## 6. Model Comparison
 
-The following table outlines the expected comparison between the classical baseline models and the Variational Quantum Classifier (VQC). 
-*(Note: Replace with your exact numbers after running all models on the full test set)*
+The following table outlines the comprehensive evaluation of all models on the test set, demonstrating how the classical baselines compare with deep learning approaches:
 
-| Model | Accuracy | Precision | Recall | F1-Score | AUC-ROC | Notes |
-| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Logistic Regression** | 0.9X | 0.8X | 0.8X | 0.8X | 0.9X | Fast, linear baseline |
-| **Random Forest** | 0.9X | 0.9X | 0.8X | 0.9X | 0.9X | Strong non-linear baseline |
-| **XGBoost** | **0.99** | **0.9X** | **0.9X** | **0.9X** | **0.99** | State-of-the-art classical performance |
-| **VQC (Hybrid)** | 0.9X | 0.8X | 0.8X | 0.8X | 0.9X | Demonstrates capability of Quantum circuits |
+| Model | Accuracy | Precision | Recall | F1-Score | AUC-ROC |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Logistic Regression** | 0.9729 | 0.0553 | 0.9184 | 0.1043 | 0.9702 |
+| **Isolation Forest** | 0.9976 | 0.3113 | 0.3367 | 0.3235 | 0.9602 |
+| **LightGBM** | 0.9981 | 0.4677 | 0.8878 | 0.6127 | 0.9735 |
+| **Neural Network (MLP)** | 0.9987 | 0.5793 | 0.8571 | 0.6914 | 0.9726 |
+| **XGBoost** | 0.9989 | 0.6385 | 0.8469 | 0.7281 | 0.9814 |
+| **TensorFlow (Dense NN)** | 0.9990 | 0.6641 | 0.8673 | 0.7522 | 0.9749 |
+| **Random Forest** | **0.9993** | **0.7788** | 0.8265 | **0.8020** | 0.9577 |
+| **VQC (Hybrid)** | *(Run nb)* | *(Run nb)* | *(Run nb)* | *(Run nb)* | *(Run nb)* |
 
 ---
 
